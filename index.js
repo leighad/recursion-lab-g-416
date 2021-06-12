@@ -11,14 +11,27 @@ function printString(myString) {
 
 function reverseString(myString) {
     
+    if (myString.length <  2) {
+        return myString;
+    } else {
+        return reverseString(myString.substring(1)) + myString[0];
+    }
 }
 
-function isPalindrome(params) {
-    
+function isPalindrome(myString) {
+    let l = myString.length;
+
+    if (l < 2) {
+        return true;
+    } else if (myString[l - 1] === myString[0]) {
+        return isPalindrome(myString.substring(1, l - 1));
+    } else {
+        return false;
+    }
 }
 
-function addUpTo(params) {
-    
+function addUpTo(array, index) {
+    return index ? array[index] + addUpTo(array, --index) : array[index]
 }
 
 function maxOf(params) {
